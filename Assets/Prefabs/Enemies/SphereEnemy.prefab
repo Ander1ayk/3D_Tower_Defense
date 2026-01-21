@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1388701241357690324}
   - component: {fileID: 5934482118591499410}
   - component: {fileID: -8227890549182299094}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SphereEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 5576660882282226936}
   - component: {fileID: 7489612471963085566}
   - component: {fileID: 9189268594952418421}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
