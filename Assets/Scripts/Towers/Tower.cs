@@ -5,11 +5,15 @@ public class Tower : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform towerRotationPoint;
     [SerializeField] private LayerMask enemyMask;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firePoint;
     [Header("Attributes")]
     [SerializeField] private float targetingRange = 5f;
     [SerializeField] private float rotationSpeed = 200f;
+    [SerializeField] private float bps = 1f; // bullets per second
 
     private Transform target;
+    private float timeUntilFire;
     private void Update()
     {
         if (target == null)
@@ -18,10 +22,31 @@ public class Tower : MonoBehaviour
             return;
         }
         RotateTowardsTarget();
-       if(!CheckTargetIsInRange())
+        if(!CheckTargetIsInRange())
         {
             target = null;
         }
+        else
+        {
+            timeUntilFire += Time.deltaTime;
+            
+            if(timeUntilFire >= 1f / bps)
+            {
+                Shoot();
+                timeUntilFire = 0f;
+            }
+        }
+    }
+    private void Shoot()
+    {
+        Vector3 direction = target.position - firePoint.position;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        rotation *= Quaternion.Euler(90f, 0f, 0f); 
+
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, rotation );
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
+        bulletScript.SetTarget(target);
+
     }
     private void FindTarget()
     {
@@ -49,7 +74,5 @@ public class Tower : MonoBehaviour
     {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(towerRotationPoint.position, targetingRange);
-        //Handles.color = Color.cyan;
-        //Handles.DrawWireDisc(towerRotationPoint.position, Vector3.up, targetingRange);
     }
 }

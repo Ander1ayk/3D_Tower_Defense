@@ -14,7 +14,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float difficultyScalingFactor = 0.75f;
 
     [Header("Events")]
-    public static UnityEvent onEnemyDestory = new UnityEvent();
+    public static UnityEvent onEnemyDestroy = new UnityEvent();
 
     private int currentWave = 1;
     private float timeSinceLastSpawn;
@@ -24,7 +24,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Awake()
     {
-        onEnemyDestory.AddListener(EnemyDestroyed);
+        onEnemyDestroy.AddListener(EnemyDestroyed);
     }
     private void Start()
     {
