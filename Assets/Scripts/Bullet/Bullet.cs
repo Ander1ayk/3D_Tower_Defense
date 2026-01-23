@@ -26,10 +26,14 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<Health>(out Health healthComponent))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            healthComponent.TakeDamage(bulletData.damage);
+            if (other.TryGetComponent<Health>(out Health healthComponent))
+            {
+                healthComponent.TakeDamage(bulletData.damage);
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        Destroy(gameObject, bulletData.timeToLive);
     }
 }

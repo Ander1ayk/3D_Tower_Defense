@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f92a886d1961c364e8ee4b64166b9fd4, type: 3}
-  m_Name: Arrow
+  m_Name: Ballista
   m_EditorClassIdentifier: Assembly-CSharp::BulletData
-  bulletSpeed: 5
+  bulletSpeed: 10
   damage: 2
   timeToLive: 3

@@ -5,6 +5,7 @@ public class Health : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private EnemyData enemyData;
     private float currentHealth;
+    private bool isDestroyed = false; 
     private void Start()
     {
         currentHealth = enemyData.maxHealth;
@@ -14,7 +15,7 @@ public class Health : MonoBehaviour
     {
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0f, enemyData.maxHealth);
-        if (currentHealth <= 0f)
+        if (currentHealth <= 0f && !isDestroyed)
         {
             Die();
         }
@@ -22,6 +23,7 @@ public class Health : MonoBehaviour
     private void Die()
     {
         SpawnManager.onEnemyDestroy.Invoke();
+        isDestroyed = true;
         Destroy(gameObject);
     } 
 }

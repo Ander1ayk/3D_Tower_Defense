@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f92a886d1961c364e8ee4b64166b9fd4, type: 3}
-  m_Name: Arrow
-  m_EditorClassIdentifier: Assembly-CSharp::BulletData
-  bulletSpeed: 5
-  damage: 2
-  timeToLive: 3
+  m_Script: {fileID: 11500000, guid: e6779cbee4f53074ba3c126dcaeb3f09, type: 3}
+  m_Name: BallistaTower
+  m_EditorClassIdentifier: Assembly-CSharp::TowerData
+  targetingRange: 10
+  rotationSpeed: 150
+  bulletsPerSecond: 0.5
+  costInMatch: 100
+  startUpgradeCost: 150

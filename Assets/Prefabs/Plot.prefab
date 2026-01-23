@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 7159341805479226825}
   - component: {fileID: 2227365368362601823}
   - component: {fileID: 7321148134149097263}
+  - component: {fileID: -3215020253656378648}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Plot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 78b106978a9f19d4d982bc5d018be40d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,3 +113,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3215020253656378648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2737402367177136776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c548d86b12a2434ebd07308d84ca73b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Plot
+  meshRenderer: {fileID: 2227365368362601823}
+  hoverMat: {fileID: 2100000, guid: 19e4ac69220be234289de2087a43a20a, type: 2}
