@@ -6,8 +6,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private Rigidbody rb;
 
     [Header("Attributes")]
-    [SerializeField] private float bulletSpeed = 5f;
-    [SerializeField] private int damage = 1;
+    [SerializeField] private BulletData bulletData;
 
     private Transform target;
 
@@ -23,13 +22,13 @@ public class Bullet : MonoBehaviour
         }
         Vector3 direction =(target.position - transform.position).normalized;
 
-        rb.linearVelocity = direction * bulletSpeed;
+        rb.linearVelocity = direction * bulletData.bulletSpeed;
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<Health>(out Health healthComponent))
         {
-            healthComponent.TakeDamage(damage);
+            healthComponent.TakeDamage(bulletData.damage);
         }
         Destroy(gameObject);
     }

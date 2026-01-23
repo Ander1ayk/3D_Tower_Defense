@@ -8,9 +8,7 @@ public class Tower : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [Header("Attributes")]
-    [SerializeField] private float targetingRange = 5f;
-    [SerializeField] private float rotationSpeed = 200f;
-    [SerializeField] private float bps = 1f; // bullets per second
+    [SerializeField] private TowerData towerData;
 
     private Transform target;
     private float timeUntilFire;
@@ -30,7 +28,7 @@ public class Tower : MonoBehaviour
         {
             timeUntilFire += Time.deltaTime;
             
-            if(timeUntilFire >= 1f / bps)
+            if(timeUntilFire >= 1f / towerData.bulletsPerSecond)
             {
                 Shoot();
                 timeUntilFire = 0f;
@@ -38,6 +36,7 @@ public class Tower : MonoBehaviour
         }
     }
     private void Shoot()
+
     {
         Vector3 direction = target.position - firePoint.position;
         Quaternion rotation = Quaternion.LookRotation(direction);
@@ -50,7 +49,8 @@ public class Tower : MonoBehaviour
     }
     private void FindTarget()
     {
-        RaycastHit[] hits = Physics.SphereCastAll(towerRotationPoint.position, targetingRange, transform.position, 0f, enemyMask);
+        RaycastHit[] hits = Physics.SphereCastAll(towerRotationPoint.position, towerData.targetingRange, 
+            transform.position, 0f, enemyMask);
 
         if (hits.Length > 0)
         {
@@ -59,7 +59,7 @@ public class Tower : MonoBehaviour
     }
     private bool CheckTargetIsInRange()
     {
-        return Vector3.Distance(target.position, transform.position) <= targetingRange;
+        return Vector3.Distance(target.position, transform.position) <= towerData.targetingRange;
     }
     private void RotateTowardsTarget()
     {
@@ -68,11 +68,11 @@ public class Tower : MonoBehaviour
 
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, -angle, 0f));
         towerRotationPoint.rotation = Quaternion.RotateTowards(towerRotationPoint.rotation,
-            targetRotation, rotationSpeed * Time.deltaTime);
+            targetRotation, towerData.rotationSpeed * Time.deltaTime);
     }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(towerRotationPoint.position, targetingRange);
+        Gizmos.DrawWireSphere(towerRotationPoint.position, towerData.targetingRange);
     }
 }

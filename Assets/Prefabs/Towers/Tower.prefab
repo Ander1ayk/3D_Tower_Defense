@@ -228,11 +228,9 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
-  bulletPrefab: {fileID: 5899629458137676871, guid: dff15d56f90f58a4bb8c3bc91caeb938, type: 3}
+  bulletPrefab: {fileID: 7298512839075923725, guid: c717e74355a17bc4aa7b36535bc09f06, type: 3}
   firePoint: {fileID: 4179376187903363918}
-  targetingRange: 5
-  rotationSpeed: 200
-  bps: 1
+  towerData: {fileID: 11400000, guid: 491c1147318a04c4c896c2896d055458, type: 2}
 --- !u!1001 &2536336942254633017
 PrefabInstance:
   m_ObjectHideFlags: 0

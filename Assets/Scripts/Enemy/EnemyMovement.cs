@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Rigidbody rb;
 
     [Header("Attributes")] 
-    [SerializeField] private float speed = 3.0f;
+    [SerializeField] private EnemyData enemyData;
 
     private Transform target;
     private int pathIndex = 0;
@@ -39,6 +39,6 @@ public class EnemyMovement : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         Quaternion smoothRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.fixedDeltaTime * 5f);
         rb.MoveRotation(smoothRotation);
-        rb.MovePosition(transform.position + direction * speed * Time.fixedDeltaTime); 
+        rb.MovePosition(transform.position + direction * enemyData.speed * Time.fixedDeltaTime); 
     }
 }

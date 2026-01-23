@@ -3,17 +3,17 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [Header("Attributes")]
-    [SerializeField] private float maxHealth = 2f;
+    [SerializeField] private EnemyData enemyData;
     private float currentHealth;
     private void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = enemyData.maxHealth;
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         currentHealth -= amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
+        currentHealth = Mathf.Clamp(currentHealth, 0f, enemyData.maxHealth);
         if (currentHealth <= 0f)
         {
             Die();

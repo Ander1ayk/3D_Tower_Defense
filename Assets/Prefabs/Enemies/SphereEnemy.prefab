@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   rb: {fileID: -1388701241357690324}
-  speed: 3
+  enemyData: {fileID: 11400000, guid: 147ed0ec6ddc61d449717d03fe88dadf, type: 2}
 --- !u!114 &-6486445904412019383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43e4fe00018d88146b874954905ddaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHealth: 2
+  enemyData: {fileID: 11400000, guid: 147ed0ec6ddc61d449717d03fe88dadf, type: 2}
 --- !u!1 &9173096968603528583
 GameObject:
   m_ObjectHideFlags: 0
