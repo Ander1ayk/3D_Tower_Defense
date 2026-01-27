@@ -23,6 +23,7 @@ public class Health : MonoBehaviour
     private void Die()
     {
         SpawnManager.onEnemyDestroy.Invoke();
+        LevelManager.main.IncreaseCurrency(enemyData.rewardMatchCoins);
         isDestroyed = true;
         Destroy(gameObject);
     } 

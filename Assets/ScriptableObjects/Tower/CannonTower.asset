@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6779cbee4f53074ba3c126dcaeb3f09, type: 3}
-  m_Name: BallistaTower
+  m_Name: CannonTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  towerName: Ballista
-  targetingRange: 10
-  rotationSpeed: 150
-  bulletsPerSecond: 0.5
-  costInMatch: 100
-  startUpgradeCost: 150
-  prefab: {fileID: 6930072946336047041, guid: a4e643f1636e4234ab3cb69f7162709c, type: 3}
+  towerName: Cannon
+  targetingRange: 7
+  rotationSpeed: 100
+  bulletsPerSecond: 0.3
+  costInMatch: 250
+  startUpgradeCost: 300
+  prefab: {fileID: 6784358144249205291, guid: 11a76a0a6ec4ba14ab7ce2cea46234da, type: 3}

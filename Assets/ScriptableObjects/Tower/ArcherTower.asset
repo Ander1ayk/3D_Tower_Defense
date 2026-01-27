@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6779cbee4f53074ba3c126dcaeb3f09, type: 3}
   m_Name: ArcherTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
+  towerName: Archer Tower
   targetingRange: 5
   rotationSpeed: 200
   bulletsPerSecond: 1
   costInMatch: 50
   startUpgradeCost: 100
+  prefab: {fileID: 9208920649500385024, guid: 740f8f2daa2e40d42b93cb2766310e5c, type: 3}
