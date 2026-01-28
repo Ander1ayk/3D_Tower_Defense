@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -10,8 +11,12 @@ public class EnemyMovement : MonoBehaviour
 
     private Transform target;
     private int pathIndex = 0;
+
+    private float currentSpeed;
+    private Coroutine slowCoroutine;
     private void Start()
     {
+        currentSpeed = enemyData.speed;
         target = LevelManager.main.pathPoints[pathIndex];
     }
 
@@ -39,6 +44,29 @@ public class EnemyMovement : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         Quaternion smoothRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.fixedDeltaTime * 5f);
         rb.MoveRotation(smoothRotation);
-        rb.MovePosition(transform.position + direction * enemyData.speed * Time.fixedDeltaTime); 
+        rb.MovePosition(transform.position + direction * currentSpeed * Time.fixedDeltaTime); 
+    }
+    public void ApplySlow(float factor, float duration)
+    {
+        if(slowCoroutine != null)
+        {
+            StopCoroutine(slowCoroutine);
+        }
+        UpdateSpeed(factor);
+        slowCoroutine = StartCoroutine(SlowDuration(duration));
+    }
+    private IEnumerator SlowDuration(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        ResetSpeed();
+        slowCoroutine = null;
+    }
+    private void UpdateSpeed(float newSpeed)
+    {
+        currentSpeed = newSpeed;
+    }
+    private void ResetSpeed()
+    {
+        currentSpeed = enemyData.speed;
     }
 }

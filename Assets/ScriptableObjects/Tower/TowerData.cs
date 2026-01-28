@@ -6,6 +6,7 @@ public class TowerData : ScriptableObject
     public float targetingRange;
     public float rotationSpeed;
     public float bulletsPerSecond;
+    public float freezeTime;
 
     public int costInMatch;
     public int startUpgradeCost;
