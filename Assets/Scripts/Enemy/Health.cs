@@ -4,6 +4,7 @@ public class Health : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] private EnemyData enemyData;
+    [SerializeField] private EnemyAnimation enemyAnim;
     private float currentHealth;
     private bool isDestroyed = false; 
     private void Start()
@@ -24,7 +25,14 @@ public class Health : MonoBehaviour
     {
         SpawnManager.onEnemyDestroy.Invoke();
         LevelManager.main.IncreaseCurrency(enemyData.rewardMatchCoins);
+        Collider collider = GetComponent<Collider>();
+        collider.enabled = false;
         isDestroyed = true;
-        Destroy(gameObject);
+        enemyAnim.PlayDeathAnimation();
+        Destroy(gameObject, enemyAnim.GetDeathAnimationLength());
     } 
+    public bool IsDestroyed()
+    {
+        return isDestroyed;
+    }
 }

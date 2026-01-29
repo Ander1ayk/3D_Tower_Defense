@@ -9,6 +9,8 @@ public class EnemyMovement : MonoBehaviour
     [Header("Attributes")] 
     [SerializeField] private EnemyData enemyData;
 
+    private Health health;
+
     private Transform target;
     private int pathIndex = 0;
 
@@ -16,6 +18,7 @@ public class EnemyMovement : MonoBehaviour
     private Coroutine slowCoroutine;
     private void Start()
     {
+        health = GetComponent<Health>();
         currentSpeed = enemyData.speed;
         target = LevelManager.main.pathPoints[pathIndex];
     }
@@ -40,6 +43,7 @@ public class EnemyMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if(health.IsDestroyed()) return;
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         Quaternion smoothRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.fixedDeltaTime * 5f);

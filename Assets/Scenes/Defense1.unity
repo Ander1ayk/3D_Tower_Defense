@@ -32103,7 +32103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
   enemyPrefabs:
-  - {fileID: 7788108068567042132, guid: 322870f32b670f94c98faca54d41eca9, type: 3}
+  - {fileID: 8705208756382195942, guid: f465ab79189329d4c8d8fb91ec8c38dc, type: 3}
+  - {fileID: 5129947454494738321, guid: 367b4d9cb091a60449be9807708c914b, type: 3}
   baseEnemies: 10
   enemiesPerSecond: 1
   timeBetweenWaves: 5
