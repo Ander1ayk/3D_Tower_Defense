@@ -9,7 +9,10 @@ public class Bullet : MonoBehaviour
     [SerializeField] private BulletData bulletData;
 
     private Transform target;
-
+    private void Start()
+    {
+        Destroy(gameObject, bulletData.timeToLive);
+    }
     public void SetTarget(Transform _target)
     {
         target = _target;
@@ -34,6 +37,5 @@ public class Bullet : MonoBehaviour
             }
             Destroy(gameObject);
         }
-        Destroy(gameObject, bulletData.timeToLive);
     }
 }
