@@ -1,14 +1,7 @@
 using UnityEngine;
 
-public class TowerSlowmo : MonoBehaviour
+public class TowerSlowmo : Tower
 {
-    [Header("References")]
-    [SerializeField] private LayerMask enemyMask;
-
-    [Header("Attributes")]
-    [SerializeField] private TowerData towerData;
-
-    private float timeUntilFire;
     private void Update()
     {
        timeUntilFire += Time.deltaTime;
@@ -29,10 +22,5 @@ public class TowerSlowmo : MonoBehaviour
                 em.ApplySlow(0.5f, towerData.freezeTime);
             }
         }
-    }
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, towerData.targetingRange);
     }
 }

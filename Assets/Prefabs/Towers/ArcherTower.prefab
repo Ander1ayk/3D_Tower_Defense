@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 721009004944643213}
-  - component: {fileID: 2956387262926764658}
+  - component: {fileID: 5794802108611002852}
   m_Layer: 0
   m_Name: ArcherTower
   m_TagString: Untagged
@@ -97,7 +97,7 @@ Transform:
   - {fileID: 6800366930018016930}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2956387262926764658
+--- !u!114 &5794802108611002852
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,16 +106,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 9208920649500385024}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e1e46526c7c41449cc983ff09e6172, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b471a523cafe344dac1f6bb3923e816, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Tower
+  m_EditorClassIdentifier: Assembly-CSharp::TowerShoot
   towerRotationPoint: {fileID: 6800366930018016930}
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
+  towerData: {fileID: 11400000, guid: 491c1147318a04c4c896c2896d055458, type: 2}
   bulletPrefab: {fileID: 7298512839075923725, guid: c717e74355a17bc4aa7b36535bc09f06, type: 3}
   firePoint: {fileID: 4179376187903363918}
-  towerData: {fileID: 11400000, guid: 491c1147318a04c4c896c2896d055458, type: 2}
 --- !u!1001 &2536336942254633017
 PrefabInstance:
   m_ObjectHideFlags: 0

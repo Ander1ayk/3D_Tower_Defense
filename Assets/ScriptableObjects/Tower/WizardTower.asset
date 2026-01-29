@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6779cbee4f53074ba3c126dcaeb3f09, type: 3}
-  m_Name: SlowmoTower
+  m_Name: WizardTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  towerName: Freeze Tower
-  targetingRange: 4
+  towerName: Wizard Tower
+  targetingRange: 10
   rotationSpeed: 0
-  bulletsPerSecond: 0.25
-  freezeTime: 1
-  costInMatch: 200
-  startUpgradeCost: 300
-  prefab: {fileID: 5366473589828541247, guid: 06f10e5c8396c1d4f83b0ca760f568e9, type: 3}
+  bulletsPerSecond: 0.5
+  freezeTime: 0
+  costInMatch: 300
+  startUpgradeCost: 500
+  prefab: {fileID: 4963345898924783352, guid: 2077a9c076c31d14692052c1a36c4971, type: 3}
