@@ -16,8 +16,11 @@ public class EnemyMovement : MonoBehaviour
 
     private float currentSpeed;
     private Coroutine slowCoroutine;
+
+    private HealthBase baseHealth;
     private void Start()
     {
+        baseHealth = FindAnyObjectByType<HealthBase>();
         health = GetComponent<Health>();
         currentSpeed = enemyData.speed;
         target = LevelManager.main.pathPoints[pathIndex];
@@ -44,6 +47,7 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if(health.IsDestroyed()) return;
+        if(baseHealth != null && baseHealth.IsDestroyed()) return;
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         Quaternion smoothRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.fixedDeltaTime * 5f);
@@ -72,5 +76,19 @@ public class EnemyMovement : MonoBehaviour
     private void ResetSpeed()
     {
         currentSpeed = enemyData.speed;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("House"))
+        {
+            // Here you can also add logic to reduce house health or trigger game over
+            Debug.Log("Enemy reached the house!");
+            if (baseHealth != null)
+            {
+                baseHealth.TakeDamage();
+            }
+            SpawnManager.onEnemyDestroy.Invoke();
+            Destroy(gameObject);
+        }
     }
 }
