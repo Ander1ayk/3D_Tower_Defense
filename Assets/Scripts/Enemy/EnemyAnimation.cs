@@ -22,7 +22,7 @@ public class EnemyAnimation : MonoBehaviour
             RuntimeAnimatorController animController = animator.runtimeAnimatorController;
             for (int i = 0; i < animController.animationClips.Length; i++)
             {
-                if (animController.animationClips[i].name == "Death" || animController.animationClips[i].name =="DEAD")
+                if (animController.animationClips[i].name.ToLower() == "Death" || animController.animationClips[i].name.ToLower() =="dead")
                 {
                     return animController.animationClips[i].length;
                 }
