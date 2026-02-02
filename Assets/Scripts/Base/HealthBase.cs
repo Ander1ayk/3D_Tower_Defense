@@ -1,15 +1,13 @@
 using UnityEngine;
-using UnityEngine.UI;
-using DG.Tweening;
+using System;
 public class HealthBase : MonoBehaviour
 {
     private int maxHealth = 3;
     private int currentHealth;
-    [SerializeField] private Image healthBar;
-    [SerializeField] private Gradient healthGragient;
-    private float lerpSpeed = 1f;
 
     private bool isDestroyed = false;
+
+    public static Action<int, int> OnHealthChanged;
 
     private void Awake()
     {
@@ -19,7 +17,7 @@ public class HealthBase : MonoBehaviour
     {
         currentHealth -= 1;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        UpdateHealthBar();
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
         if (currentHealth <= 0)
         {
             //Destroy base
@@ -27,13 +25,6 @@ public class HealthBase : MonoBehaviour
             isDestroyed = true;
             Debug.Log("Base Destroyed! Game Over!");
         }
-    }
-    private void UpdateHealthBar()
-    {
-        float targethealth = (float)currentHealth / maxHealth;
-        healthBar.DOKill();
-        healthBar.DOFillAmount(targethealth, lerpSpeed);
-        healthBar.color = healthGragient.Evaluate(targethealth);
     }
     public bool IsDestroyed() => isDestroyed;
 }
