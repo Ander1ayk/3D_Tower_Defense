@@ -24,10 +24,13 @@ public class Health : MonoBehaviour
     private void Die()
     {
         SpawnManager.onEnemyDestroy.Invoke();
-        LevelManager.main.IncreaseCurrency(enemyData.rewardMatchCoins);
+        Wallet.Instance.IncreaseCurrency(enemyData.rewardMatchCoins);
+        Bank.Instance.Deposit(enemyData.rewardGameCoins);
+
         Collider collider = GetComponent<Collider>();
         collider.enabled = false;
         isDestroyed = true;
+
         enemyAnim.PlayDeathAnimation();
         Destroy(gameObject, enemyAnim.GetDeathAnimationLength());
     } 

@@ -8,6 +8,7 @@ public abstract class Tower : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] protected TowerData towerData;
 
+
     protected Transform target;
     protected float timeUntilFire;
     

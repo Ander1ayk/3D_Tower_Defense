@@ -28,12 +28,12 @@ public class Plot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         if (tower != null) return;
 
         TowerData towerToBuild = BuildManager.Instance.GetSelectedTowerPrefab();
-        if(towerToBuild.costInMatch > LevelManager.main.currency)
+        if(towerToBuild.costInMatch > Wallet.Instance.GetCurrency())
         {
             Debug.Log("Not enough currency to build this tower!");
             return;
         }
-        LevelManager.main.SpendCurrency(towerToBuild.costInMatch); 
+        Wallet.Instance.SpendCurrency(towerToBuild.costInMatch); 
         tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
     }
 }

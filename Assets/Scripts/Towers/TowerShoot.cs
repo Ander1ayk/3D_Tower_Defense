@@ -6,9 +6,14 @@ public class TowerShoot : Tower
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private bool canRotate = true;
-
+    private HealthBase baseHealth;
+    private void Start()
+    {
+        baseHealth = FindAnyObjectByType<HealthBase>();
+    }
     private void Update()
     {
+        if (baseHealth != null && baseHealth.IsDestroyed()) return;
         if (target == null)
         {
             FindTarget();
@@ -32,7 +37,6 @@ public class TowerShoot : Tower
         }
     }
     private void Shoot()
-
     {
         Vector3 direction = target.position - firePoint.position;
         Quaternion rotation = Quaternion.LookRotation(direction);

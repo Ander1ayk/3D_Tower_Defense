@@ -2,9 +2,15 @@ using UnityEngine;
 
 public class TowerSlowmo : Tower
 {
+    private HealthBase baseHealth;
+    private void Start()
+    {
+        baseHealth = FindAnyObjectByType<HealthBase>();
+    }
     private void Update()
     {
-       timeUntilFire += Time.deltaTime;
+        if (baseHealth != null && baseHealth.IsDestroyed()) return;
+        timeUntilFire += Time.deltaTime;
 
        if (timeUntilFire >= 1f / towerData.bulletsPerSecond)
        {

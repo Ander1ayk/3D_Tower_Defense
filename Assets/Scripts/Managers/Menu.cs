@@ -14,10 +14,6 @@ public class Menu : MonoBehaviour
     }
     private void OnGUI()
     {
-        currencyUI.text = "Currency: " + LevelManager.main.currency.ToString();
-    }
-    public void SetSelected()
-    {
-
+        currencyUI.text = "Currency: " + Wallet.Instance.GetCurrency();
     }
 }

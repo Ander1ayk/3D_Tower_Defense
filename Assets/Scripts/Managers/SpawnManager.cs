@@ -62,6 +62,8 @@ public class SpawnManager : MonoBehaviour
     private IEnumerator StartWave()
     {
         yield return new WaitForSeconds(timeBetweenWaves);
+        ScreenUI.Instance.UpdateWaveInfo(currentWave);
+
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
         eps = EnemiesPerSecond();

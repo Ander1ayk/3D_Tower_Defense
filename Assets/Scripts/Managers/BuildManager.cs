@@ -23,6 +23,15 @@ public class BuildManager : MonoBehaviour
     }
     public void SetSelectedTower(int _selectedTower)
     {
+        if(_selectedTower < 0 || _selectedTower >= towers.Length)
+        {
+            return;
+        }
         selectedTower = _selectedTower;
+
+        if(ScreenUI.Instance != null)
+        {
+            ScreenUI.Instance.UpdateInfoCostTower(towers[selectedTower].towerName, towers[selectedTower].costInMatch);
+        }
     }
 }
