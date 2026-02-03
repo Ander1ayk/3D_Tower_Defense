@@ -29,7 +29,7 @@ public class TowerShoot : Tower
         {
             timeUntilFire += Time.deltaTime;
 
-            if (timeUntilFire >= 1f / towerData.bulletsPerSecond)
+            if (timeUntilFire >= 1f / (towerData.bulletsPerSecond + towerData.level * 0.2f))
             {
                 Shoot();
                 timeUntilFire = 0f;
@@ -46,6 +46,7 @@ public class TowerShoot : Tower
         if(bullet.TryGetComponent(out Bullet bulletScript))
         {
             bulletScript.SetTarget(target);
+            bulletScript.SetDamage(towerData.level);
         }
     }
     private void RotateTowardsTarget()

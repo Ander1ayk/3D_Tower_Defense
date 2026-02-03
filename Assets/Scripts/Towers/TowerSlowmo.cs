@@ -25,7 +25,8 @@ public class TowerSlowmo : Tower
         {
             if (col.TryGetComponent<EnemyMovement>(out EnemyMovement em))
             {
-                em.ApplySlow(0.5f, towerData.freezeTime);
+                float currentFreezeTime = towerData.freezeTime + (towerData.level * 0.1f);
+                em.ApplySlow(0.5f, currentFreezeTime);
             }
         }
     }

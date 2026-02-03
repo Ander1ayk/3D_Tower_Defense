@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private BulletData bulletData;
+    private int damage;
 
     private Transform target;
     private void Start()
@@ -33,9 +34,14 @@ public class Bullet : MonoBehaviour
         {
             if (other.TryGetComponent<Health>(out Health healthComponent))
             {
-                healthComponent.TakeDamage(bulletData.damage);
+                healthComponent.TakeDamage(damage);
             }
             Destroy(gameObject);
         }
+    }
+    public int SetDamage(float amount)
+    {
+        damage = Mathf.RoundToInt(bulletData.damage + amount);
+        return damage;
     }
 }

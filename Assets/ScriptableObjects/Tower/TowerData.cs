@@ -12,4 +12,6 @@ public class TowerData : ScriptableObject
     public int startUpgradeCost;
 
     public GameObject prefab;
+    public Sprite icon;
+    public int level;
 }

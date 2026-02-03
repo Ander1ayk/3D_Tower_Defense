@@ -16,6 +16,9 @@ MonoBehaviour:
   targetingRange: 5
   rotationSpeed: 200
   bulletsPerSecond: 1
+  freezeTime: 0
   costInMatch: 50
   startUpgradeCost: 100
   prefab: {fileID: 9208920649500385024, guid: 740f8f2daa2e40d42b93cb2766310e5c, type: 3}
+  icon: {fileID: 21300000, guid: bfe404a1139f2bd429c80e020b24ba83, type: 3}
+  level: 1
