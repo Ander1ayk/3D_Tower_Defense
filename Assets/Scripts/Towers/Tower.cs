@@ -11,6 +11,13 @@ public abstract class Tower : MonoBehaviour
 
     protected Transform target;
     protected float timeUntilFire;
+
+    protected int currentLevel;
+
+    protected virtual void Awake()
+    {
+        currentLevel = PlayerPrefs.GetInt(towerData.towerName + "_Level", 1);
+    }
     
     protected virtual void FindTarget()
     {

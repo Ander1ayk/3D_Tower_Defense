@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GridFillerUI : MonoBehaviour
@@ -6,39 +7,35 @@ public class GridFillerUI : MonoBehaviour
     public GameObject gridItemPrefab;
     public Transform gridParent;
     public TowerData[] towerDataArray;
+
+    private List<TowerUpgradeState> towerStates = new List<TowerUpgradeState>();
+    
     void Start()
     {
         FillGrid();
     }
     void FillGrid()
     {
-        foreach (TowerData towerData in towerDataArray)
+        foreach (TowerData soData in towerDataArray)
         {
-            towerData.level = PlayerPrefs.GetInt(towerData.towerName + "_Level", 1);
-            towerData.startUpgradeCost = PlayerPrefs.GetInt(towerData.towerName + "_UpgradeCost", towerData.startUpgradeCost);
+            TowerUpgradeState state = new TowerUpgradeState(soData);
+            towerStates.Add(state);
 
-            GameObject gridItem = Instantiate(gridItemPrefab, gridParent);
-            TowerItemUI towerItemUI = gridItem.GetComponent<TowerItemUI>();
+            TowerItemUI itemUI = Instantiate(gridItemPrefab, gridParent).GetComponent<TowerItemUI>();
+            itemUI.Setup(state);
+            itemUI.OnUpgradeRequested += HandleUpgrade;
 
-            if(towerItemUI != null)
-            {
-                towerItemUI.Setup(towerData);
-                towerItemUI.OnUpgradeRequested += HandleUpgrade;
-            }
         }
     }
-    private void HandleUpgrade(TowerData data, TowerItemUI itemUI)
+    private void HandleUpgrade(TowerUpgradeState state, TowerItemUI itemUI)
     {
-        if(Bank.Instance.GetTotalFunds() >= data.startUpgradeCost)
+        if(Bank.Instance.GetTotalFunds() >= state.nextUpgradeCost)
         {
-            bool success = Bank.Instance.Withdraw(data.startUpgradeCost);
+            bool success = Bank.Instance.Withdraw(state.nextUpgradeCost);
             if (success)
             {
-                data.level++;
-                data.startUpgradeCost += Mathf.RoundToInt(data.startUpgradeCost * 0.5f);
-                PlayerPrefs.SetInt(data.towerName + "_Level", data.level);
-                PlayerPrefs.SetInt(data.towerName + "_UpgradeCost", data.startUpgradeCost);
-                itemUI.Refresh(data);
+                state.Upgrade();
+                itemUI.Refresh(state);
 
             }
             else

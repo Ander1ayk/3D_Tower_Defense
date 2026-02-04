@@ -21,11 +21,11 @@ public class TowerSlowmo : Tower
     private void FreezeEnemies()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, towerData.targetingRange, enemyMask);
+        float currentFreezeTime = towerData.freezeTime + (currentLevel * 0.1f);
         foreach (Collider col in hitColliders)
         {
             if (col.TryGetComponent<EnemyMovement>(out EnemyMovement em))
             {
-                float currentFreezeTime = towerData.freezeTime + (towerData.level * 0.1f);
                 em.ApplySlow(0.5f, currentFreezeTime);
             }
         }
