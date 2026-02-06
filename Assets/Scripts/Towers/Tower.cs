@@ -16,7 +16,15 @@ public abstract class Tower : MonoBehaviour
 
     protected virtual void Awake()
     {
-        currentLevel = PlayerPrefs.GetInt(towerData.towerName + "_Level", 1);
+        var savedTower = JsonSave.Instance.currentData.towerLevels.Find(e => e.towerName == towerData.towerName);
+        if(savedTower != null)
+        {
+            currentLevel = savedTower.level;
+        }
+        else
+        {
+            currentLevel = 1;
+        }
     }
     
     protected virtual void FindTarget()

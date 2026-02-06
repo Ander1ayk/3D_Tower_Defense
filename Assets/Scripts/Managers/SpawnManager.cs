@@ -52,7 +52,20 @@ public class SpawnManager : MonoBehaviour
     }
     private void SpawnEnemy()
     {
-        GameObject prefabToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+        int availableTypes = 1;
+
+        if (currentWave >= 7)
+        {
+            availableTypes = 3;
+        }
+        else if (currentWave >= 4)
+        {
+            availableTypes = 2;
+        }
+
+        int maxIndex = Mathf.Min(availableTypes, enemyPrefabs.Length);
+
+        GameObject prefabToSpawn = enemyPrefabs[Random.Range(0, maxIndex)];
         Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
     }
     private void EnemyDestroyed()

@@ -30,7 +30,16 @@ public class TowerItemUI : MonoBehaviour
 
         costText.text = "Cost: " + state.nextUpgradeCost.ToString("N0");
 
-        upgradeButton.onClick.RemoveAllListeners();
+        if (state.currentLevel >= 10)
+        {
+            costText.text = "Max Level";
+            upgradeButton.interactable = false;
+        }
+        else
+        {
+            upgradeButton.interactable = true;
+        }
+            upgradeButton.onClick.RemoveAllListeners();
         upgradeButton.onClick.AddListener(() => OnUpgradeRequested?.Invoke(state, this));
     }
     public void Refresh(TowerUpgradeState state)

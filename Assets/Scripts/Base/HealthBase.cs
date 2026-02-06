@@ -8,6 +8,7 @@ public class HealthBase : MonoBehaviour
     private bool isDestroyed = false;
 
     public static Action<int, int> OnHealthChanged;
+    public static Action OnBaseDestroyed;
 
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class HealthBase : MonoBehaviour
         {
             //Destroy base
             //GameOver
+            OnBaseDestroyed?.Invoke();
             isDestroyed = true;
             Debug.Log("Base Destroyed! Game Over!");
         }

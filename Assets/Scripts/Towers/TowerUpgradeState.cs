@@ -7,18 +7,34 @@ public class TowerUpgradeState
     public int currentLevel;
     public int nextUpgradeCost;
 
+    private TowerSaveEntry saveEntry;
     public TowerUpgradeState(TowerData originalData)
     {
         data = originalData;
-
-        currentLevel = PlayerPrefs.GetInt(data.towerName + "_Level", 1);
-        nextUpgradeCost = PlayerPrefs.GetInt(data.towerName + "_UpgradeCost", data.startUpgradeCost);
+        saveEntry = JsonSave.Instance.currentData.towerLevels.Find(e => e.towerName == data.towerName);
+        if(saveEntry == null)
+        {
+            saveEntry = new TowerSaveEntry
+            {
+                towerName = data.towerName,
+                level = 1,
+                upgradeCost = data.startUpgradeCost
+            };
+            JsonSave.Instance.currentData.towerLevels.Add(saveEntry);
+            JsonSave.Instance.SaveGame();
+        }
+        currentLevel = saveEntry.level;
+        nextUpgradeCost = saveEntry.upgradeCost;
+        
     }
     public void Upgrade()
     {
         currentLevel++;
         nextUpgradeCost += Mathf.RoundToInt(nextUpgradeCost * 0.5f);
-        PlayerPrefs.SetInt(data.towerName + "_Level", currentLevel);
-        PlayerPrefs.SetInt(data.towerName + "_UpgradeCost", nextUpgradeCost);
+
+        saveEntry.level = currentLevel;
+        saveEntry.upgradeCost = nextUpgradeCost;
+
+        JsonSave.Instance.SaveGame();
     }
 }
