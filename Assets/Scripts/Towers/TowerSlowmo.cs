@@ -20,6 +20,7 @@ public class TowerSlowmo : Tower
     }
     private void FreezeEnemies()
     {
+        AudioManager.Instance.PlaySFX(fireSFX, false, 1f);
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, towerData.targetingRange, enemyMask);
         float currentFreezeTime = towerData.freezeTime + (currentLevel * 0.1f);
         foreach (Collider col in hitColliders)

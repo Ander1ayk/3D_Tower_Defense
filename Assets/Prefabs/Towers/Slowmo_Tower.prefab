@@ -50,6 +50,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   towerData: {fileID: 11400000, guid: 95092128da4aa9e4dae754583cf60f48, type: 2}
+  fireSFX: {fileID: 8300000, guid: 61434a3ca50f49b4ead237bc0c726915, type: 3}
 --- !u!1 &7664317107736963551
 GameObject:
   m_ObjectHideFlags: 0

@@ -81,6 +81,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   towerData: {fileID: 11400000, guid: aa738d492e4e5a64383baea3ff401899, type: 2}
+  fireSFX: {fileID: 8300000, guid: 1b393e1247fe1b54787c2f39a798948a, type: 3}
   bulletPrefab: {fileID: 2818962516577974616, guid: 6873819d580c4c54fa75be5caa8024dd, type: 3}
   firePoint: {fileID: 1230230555076385019}
   canRotate: 0

@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   enemyData: {fileID: 11400000, guid: d5cf9bd119a20f14f930f367d1506f7c, type: 2}
   enemyAnim: {fileID: 660731863917810799}
+  deathSFX: {fileID: 8300000, guid: 1723a4f6b74af1943ac27da9b6b545c3, type: 3}
 --- !u!114 &660731863917810799
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ public class Health : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private EnemyData enemyData;
     [SerializeField] private EnemyAnimation enemyAnim;
+    [SerializeField] private AudioClip deathSFX;
     private float currentHealth;
     private bool isDestroyed = false; 
     private void Start()
@@ -32,6 +33,7 @@ public class Health : MonoBehaviour
         isDestroyed = true;
 
         enemyAnim.PlayDeathAnimation();
+        AudioManager.Instance.PlaySFX(deathSFX, true, 0.8f);
         Destroy(gameObject, enemyAnim.GetDeathAnimationLength());
     } 
     public bool IsDestroyed()

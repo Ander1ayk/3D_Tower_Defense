@@ -2,6 +2,9 @@ using UnityEngine;
 using System;
 public class HealthBase : MonoBehaviour
 {
+    [Header("Audio")]
+    [SerializeField] private AudioClip damageSFX;
+    [SerializeField] private AudioClip gameOver;
     private int maxHealth = 3;
     private int currentHealth;
 
@@ -23,9 +26,14 @@ public class HealthBase : MonoBehaviour
         {
             //Destroy base
             //GameOver
+            AudioManager.Instance.PlaySFX(gameOver, false, 1f);
             OnBaseDestroyed?.Invoke();
             isDestroyed = true;
             Debug.Log("Base Destroyed! Game Over!");
+        }
+        else
+        {
+            AudioManager.Instance.PlaySFX(damageSFX, false, 1f);
         }
     }
     public bool IsDestroyed() => isDestroyed;

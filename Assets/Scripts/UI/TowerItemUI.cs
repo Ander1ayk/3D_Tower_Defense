@@ -45,9 +45,7 @@ public class TowerItemUI : MonoBehaviour
     public void Refresh(TowerUpgradeState state)
     {
         Setup(state);
-        // Jump effect on icon
-        iconImage.transform.DOPunchScale(Vector3.one * 0.2f, 0.3f);
+        // Jump effect
         upgradeButton.transform.DOPunchScale(Vector3.one * 0.1f, 0.2f);
-        // can be sound or visual effect to indicate successful upgrade
     }
 }

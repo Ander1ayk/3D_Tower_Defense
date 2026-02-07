@@ -42,6 +42,7 @@ public class TowerShoot : Tower
         Quaternion rotation = Quaternion.LookRotation(direction);
         rotation *= Quaternion.Euler(90f, 0f, 0f);
 
+        AudioManager.Instance.PlaySFX(fireSFX, false, 0.9f);
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, rotation);
         if(bullet.TryGetComponent(out Bullet bulletScript))
         {

@@ -6,6 +6,7 @@ public class BuildManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private TowerData[] towers;
+    [SerializeField] private AudioClip buildTower;
 
     private int selectedTower = 0;
     private void Awake()
@@ -33,5 +34,9 @@ public class BuildManager : MonoBehaviour
         {
             ScreenUI.Instance.UpdateInfoCostTower(towers[selectedTower].towerName, towers[selectedTower].costInMatch);
         }
+    }
+    public void PlayBuildSound()
+    {
+        AudioManager.Instance.PlaySFX(buildTower, false, 0.9f);
     }
 }

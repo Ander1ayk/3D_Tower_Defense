@@ -7,6 +7,8 @@ public class GridFillerUI : MonoBehaviour
     public GameObject gridItemPrefab;
     public Transform gridParent;
     public TowerData[] towerDataArray;
+    public AudioClip upgradeSFX;
+    public AudioClip cantUpgradeSFX;
 
     private List<TowerUpgradeState> towerStates = new List<TowerUpgradeState>();
     
@@ -29,19 +31,16 @@ public class GridFillerUI : MonoBehaviour
     }
     private void HandleUpgrade(TowerUpgradeState state, TowerItemUI itemUI)
     {
-        if(Bank.Instance.GetTotalFunds() >= state.nextUpgradeCost)
+        if (Bank.Instance.Withdraw(state.nextUpgradeCost))
         {
-            bool success = Bank.Instance.Withdraw(state.nextUpgradeCost);
-            if (success)
-            {
-                state.Upgrade();
-                itemUI.Refresh(state);
-
-            }
-            else
-            {
-                itemUI.upgradeButton.transform.DOShakePosition(0.5f, 10f);
-            }
+            state.Upgrade();
+            itemUI.Refresh(state);
+            AudioManager.Instance.PlaySFX(upgradeSFX);
+        }
+        else
+        {
+            itemUI.upgradeButton.transform.DOShakePosition(0.5f, 10f);
+            AudioManager.Instance.PlaySFX(cantUpgradeSFX);
         }
     }
 }

@@ -7,6 +7,7 @@ public abstract class Tower : MonoBehaviour
     [SerializeField] protected LayerMask enemyMask;
     [Header("Attributes")]
     [SerializeField] protected TowerData towerData;
+    [SerializeField] protected AudioClip fireSFX;
 
 
     protected Transform target;

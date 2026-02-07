@@ -35,5 +35,6 @@ public class Plot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         }
         Wallet.Instance.SpendCurrency(towerToBuild.costInMatch); 
         tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
+        BuildManager.Instance.PlayBuildSound();
     }
 }
