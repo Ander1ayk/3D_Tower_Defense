@@ -39,9 +39,9 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public int SetDamage(float amount)
+    public int SetDamage(int amount)
     {
-        damage = Mathf.RoundToInt(bulletData.damage + amount);
+        damage = Mathf.RoundToInt(bulletData.damage * (1 + 0.25f * (amount - 1)));
         return damage;
     }
 }

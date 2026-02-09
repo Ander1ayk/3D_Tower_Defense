@@ -3,6 +3,6 @@ using UnityEngine;
 public class BulletData : ScriptableObject
 {
     public float bulletSpeed;
-    public float damage;
+    public int damage;
     public float timeToLive;
 }

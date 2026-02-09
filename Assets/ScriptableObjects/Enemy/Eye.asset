@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6388bd2e29995134399ff4567bf91f3f, type: 3}
   m_Name: Eye
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  maxHealth: 10
-  speed: 2
-  rewardMatchCoins: 50
-  rewardGameCoins: 100
+  maxHealth: 250
+  speed: 3
+  rewardMatchCoins: 20
+  rewardGameCoins: 10

@@ -9,7 +9,7 @@ public class SpawnManager : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 8;
-    [SerializeField] private float enemiesPerSecond = 1f;
+    [SerializeField] private float enemiesPerSecond = 0.5f;
     [SerializeField] private float timeBetweenWaves = 5.0f;
     [SerializeField] private float difficultyScalingFactor = 0.75f;
     [SerializeField] private float enemiesPerSecondCap = 15f;
@@ -79,7 +79,8 @@ public class SpawnManager : MonoBehaviour
 
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
-        eps = EnemiesPerSecond();
+        //eps = EnemiesPerSecond();
+        eps = enemiesPerSecond;
     }
     private void EndWave()
     {
@@ -92,9 +93,9 @@ public class SpawnManager : MonoBehaviour
     {
         return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScalingFactor));
     }
-    private float EnemiesPerSecond()
-    {
-        return Mathf.Clamp(enemiesPerSecond * Mathf.Pow(currentWave, difficultyScalingFactor),
-            0f,enemiesPerSecondCap);
-    }
+    //private float EnemiesPerSecond()
+    //{
+    //    return Mathf.Clamp(enemiesPerSecond * Mathf.Pow(currentWave, difficultyScalingFactor),
+    //        0f,enemiesPerSecondCap);
+    //}
 }

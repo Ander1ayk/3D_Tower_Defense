@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ArcherTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
   towerName: Archer Tower
-  targetingRange: 5
-  rotationSpeed: 200
-  bulletsPerSecond: 1
+  targetingRange: 6
+  rotationSpeed: 800
+  bulletsPerSecond: 1.5
   freezeTime: 0
   costInMatch: 50
   startUpgradeCost: 100

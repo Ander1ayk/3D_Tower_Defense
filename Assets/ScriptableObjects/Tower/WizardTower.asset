@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: WizardTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
   towerName: Wizard Tower
-  targetingRange: 10
+  targetingRange: 6.5
   rotationSpeed: 0
-  bulletsPerSecond: 0.5
+  bulletsPerSecond: 1
   freezeTime: 0
-  costInMatch: 300
-  startUpgradeCost: 500
+  costInMatch: 85
+  startUpgradeCost: 160
   prefab: {fileID: 4963345898924783352, guid: 2077a9c076c31d14692052c1a36c4971, type: 3}
   icon: {fileID: 21300000, guid: f544ebcd838df0842b3da13d0f7aec06, type: 3}
   level: 1

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Ballista
   m_EditorClassIdentifier: Assembly-CSharp::BulletData
   bulletSpeed: 10
-  damage: 2
+  damage: 80
   timeToLive: 3

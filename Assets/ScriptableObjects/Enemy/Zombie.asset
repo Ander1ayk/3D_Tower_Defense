@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6388bd2e29995134399ff4567bf91f3f, type: 3}
   m_Name: Zombie
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  maxHealth: 2
-  speed: 3
-  rewardMatchCoins: 5
-  rewardGameCoins: 10
+  maxHealth: 100
+  speed: 5
+  rewardMatchCoins: 10
+  rewardGameCoins: 5

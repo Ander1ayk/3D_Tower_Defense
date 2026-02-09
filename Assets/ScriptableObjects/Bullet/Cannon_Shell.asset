@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f92a886d1961c364e8ee4b64166b9fd4, type: 3}
   m_Name: Cannon_Shell
   m_EditorClassIdentifier: Assembly-CSharp::BulletData
-  bulletSpeed: 7
-  damage: 3
-  timeToLive: 3
+  bulletSpeed: 9
+  damage: 60
+  timeToLive: 2.5

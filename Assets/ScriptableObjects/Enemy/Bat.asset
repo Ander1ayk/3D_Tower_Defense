@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6388bd2e29995134399ff4567bf91f3f, type: 3}
   m_Name: Bat
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  maxHealth: 1
+  maxHealth: 60
   speed: 10
-  rewardMatchCoins: 5
-  rewardGameCoins: 10
+  rewardMatchCoins: 12
+  rewardGameCoins: 6
