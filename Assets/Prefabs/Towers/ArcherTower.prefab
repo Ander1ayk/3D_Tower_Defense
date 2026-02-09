@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2645962086642145234}
+  - {fileID: 7977543004243182056}
   - {fileID: 4179376187903363918}
   m_Father: {fileID: 721009004944643213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -126,57 +126,57 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6800366930018016930}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 253341c3202a93b4abe7b9a0d3ccdc3d, type: 3}
+    - target: {fileID: 5101695152803064683, guid: 6026479b6e5ebb842817d87d9c6cb887, type: 3}
+      propertyPath: m_Name
+      value: archerTowerColor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5586447171765989841, guid: 6026479b6e5ebb842817d87d9c6cb887, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 253341c3202a93b4abe7b9a0d3ccdc3d, type: 3}
+    - target: {fileID: 5586447171765989841, guid: 6026479b6e5ebb842817d87d9c6cb887, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 253341c3202a93b4abe7b9a0d3ccdc3d, type: 3}
+    - target: {fileID: 5586447171765989841, guid: 6026479b6e5ebb842817d87d9c6cb887, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 253341c3202a93b4abe7b9a0d3ccdc3d, type: 3}
+    - target: {fileID: 5586447171765989841, guid: 6026479b6e5ebb842817d87d9c6cb887, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 253341c3202a93b4abe7b9a0d3ccdc3d, type: 3}
+    - target: {fileID: 5586447171765989841, guid: 6026479b6e5ebb842817d87d9c6cb887, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 253341c3202a93b4abe7b9a0d3ccdc3d, type: 3}
+    - target: {fileID: 5586447171765989841, guid: 6026479b6e5ebb842817d87d9c6cb887, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 253341c3202a93b4abe7b9a0d3ccdc3d, type: 3}
+    - target: {fileID: 5586447171765989841, guid: 6026479b6e5ebb842817d87d9c6cb887, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 253341c3202a93b4abe7b9a0d3ccdc3d, type: 3}
+    - target: {fileID: 5586447171765989841, guid: 6026479b6e5ebb842817d87d9c6cb887, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 253341c3202a93b4abe7b9a0d3ccdc3d, type: 3}
+    - target: {fileID: 5586447171765989841, guid: 6026479b6e5ebb842817d87d9c6cb887, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 253341c3202a93b4abe7b9a0d3ccdc3d, type: 3}
+    - target: {fileID: 5586447171765989841, guid: 6026479b6e5ebb842817d87d9c6cb887, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 253341c3202a93b4abe7b9a0d3ccdc3d, type: 3}
-      propertyPath: m_Name
-      value: archer_tower_LVL_4_rig
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 253341c3202a93b4abe7b9a0d3ccdc3d, type: 3}
---- !u!4 &2645962086642145234 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 6026479b6e5ebb842817d87d9c6cb887, type: 3}
+--- !u!4 &7977543004243182056 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 253341c3202a93b4abe7b9a0d3ccdc3d, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5586447171765989841, guid: 6026479b6e5ebb842817d87d9c6cb887, type: 3}
   m_PrefabInstance: {fileID: 2536336942254633017}
   m_PrefabAsset: {fileID: 0}

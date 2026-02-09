@@ -20,5 +20,5 @@ MonoBehaviour:
   costInMatch: 70
   startUpgradeCost: 130
   prefab: {fileID: 5366473589828541247, guid: 06f10e5c8396c1d4f83b0ca760f568e9, type: 3}
-  icon: {fileID: 21300000, guid: 588b8839ddb911c49b3b8d873eb5bcc3, type: 3}
+  icon: {fileID: 21300000, guid: 940186ebc7bfcec4e8371099a7d2f43b, type: 3}
   level: 1
