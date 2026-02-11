@@ -126,6 +126,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6800366930018016930}
     m_Modifications:
+    - target: {fileID: 1040770303794521257, guid: 6026479b6e5ebb842817d87d9c6cb887, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5101695152803064683, guid: 6026479b6e5ebb842817d87d9c6cb887, type: 3}
       propertyPath: m_Name
       value: archerTowerColor
