@@ -7,16 +7,25 @@ public class Health : MonoBehaviour
     [SerializeField] private EnemyAnimation enemyAnim;
     [SerializeField] private AudioClip deathSFX;
     private float currentHealth;
-    private bool isDestroyed = false; 
+    private float maxHealthForThisEnemy;
+    private bool isDestroyed = false;
     private void Start()
     {
-        currentHealth = enemyData.maxHealth;
+        if(maxHealthForThisEnemy <= 0f)
+        {
+            maxHealthForThisEnemy = enemyData.maxHealth;
+            currentHealth = maxHealthForThisEnemy;
+        }
     }
-
+    public void SetHealthMultiplier(float amount)
+    {
+        maxHealthForThisEnemy = enemyData.maxHealth * amount;
+        currentHealth = maxHealthForThisEnemy;
+    }
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0f, enemyData.maxHealth);
+        currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealthForThisEnemy);
         if (currentHealth <= 0f && !isDestroyed)
         {
             Die();

@@ -9,10 +9,9 @@ public class SpawnManager : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 8;
-    [SerializeField] private float enemiesPerSecond = 0.5f;
+    [SerializeField] private float enemiesPerSecond = 2f;
     [SerializeField] private float timeBetweenWaves = 5.0f;
     [SerializeField] private float difficultyScalingFactor = 0.75f;
-    [SerializeField] private float enemiesPerSecondCap = 15f;
 
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
@@ -23,10 +22,15 @@ public class SpawnManager : MonoBehaviour
     private int enemiesLeftToSpawn;
     private float eps; // enemies per second
     private bool isSpawning = false;
+    private float currentHealthMultiplier = 1f;
 
     private void Awake()
     {
         onEnemyDestroy.AddListener(EnemyDestroyed);
+    }
+    private void OnDestroy()
+    {
+        onEnemyDestroy.RemoveListener(EnemyDestroyed);
     }
     private void Start()
     {
@@ -66,7 +70,13 @@ public class SpawnManager : MonoBehaviour
         int maxIndex = Mathf.Min(availableTypes, enemyPrefabs.Length);
 
         GameObject prefabToSpawn = enemyPrefabs[Random.Range(0, maxIndex)];
-        Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
+        GameObject enemy = Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
+
+        Health enemyHealth = enemy.GetComponent<Health>();
+        if(enemyHealth != null)
+        {
+            enemyHealth.SetHealthMultiplier(currentHealthMultiplier);
+        }
     }
     private void EnemyDestroyed()
     {
@@ -75,11 +85,13 @@ public class SpawnManager : MonoBehaviour
     private IEnumerator StartWave()
     {
         yield return new WaitForSeconds(timeBetweenWaves);
-        ScreenUI.Instance.UpdateWaveInfo(currentWave);
+
+        if(ScreenUI.Instance != null)
+
+            ScreenUI.Instance.UpdateWaveInfo(currentWave);
 
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
-        //eps = EnemiesPerSecond();
         eps = enemiesPerSecond;
     }
     private void EndWave()
@@ -87,15 +99,18 @@ public class SpawnManager : MonoBehaviour
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;
-        StartCoroutine(StartWave());
+        if(currentWave %2 == 0)
+        {
+            currentHealthMultiplier *= 1.10f;
+        }
+        else
+        {
+            currentHealthMultiplier *= 1.05f;
+        }
+            StartCoroutine(StartWave());
     }
     private int EnemiesPerWave()
     {
         return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScalingFactor));
     }
-    //private float EnemiesPerSecond()
-    //{
-    //    return Mathf.Clamp(enemiesPerSecond * Mathf.Pow(currentWave, difficultyScalingFactor),
-    //        0f,enemiesPerSecondCap);
-    //}
 }
