@@ -23,7 +23,7 @@ public class GridFillerUI : MonoBehaviour
             TowerUpgradeState state = new TowerUpgradeState(soData);
             towerStates.Add(state);
 
-            TowerItemUI itemUI = Instantiate(gridItemPrefab, gridParent).GetComponent<TowerItemUI>();
+            TowerItemUI itemUI = Instantiate(gridItemPrefab, gridParent, false).GetComponent<TowerItemUI>();
             itemUI.Setup(state);
             itemUI.OnUpgradeRequested += HandleUpgrade;
 
